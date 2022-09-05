@@ -1,7 +1,6 @@
-import { getFirestore } from "firebase/firestore/lite";
 import React, { useContext, useState } from "react";
 import { FirebaseContext } from "../context/firebaseContext";
-import { doc, setDoc } from "firebase/firestore";
+import 'firebase/firestore';
 
 const AddEmployee = () => {
   const [employeeDetails, setEmployeeDetails] = useState({
@@ -9,18 +8,13 @@ const AddEmployee = () => {
     designation: "",
     salary: "",
   });
-  const { app } = useContext(FirebaseContext);
-  console.log(app);
-
-  const db = getFirestore(app);
-
+  const { db } = useContext(FirebaseContext);
+  
+  
   console.log(db);
   const onSubmit = (e) => {
     e.preventDefault();
-    setDoc(doc, (db, "employees"), employeeDetails).then(() =>
-      console.log("abcd")
-    );
-    // db.collection("employees").add(employeeDetails);
+    db.collection("employees").doc().set(employeeDetails);
     alert("Employee added successfully");
     setEmployeeDetails({ name: "", designation: "", salary: "" });
   };

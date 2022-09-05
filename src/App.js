@@ -1,16 +1,13 @@
 import React from "react";
-// import { firebaseConfig } from "./firebase";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore/lite";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import { FirebaseContext } from "./context/firebaseContext";
 import Employees from "./components/Employees";
 import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployee from "./components/AddEmployee";
 import Error from "./components/Error";
-// import env from "react-dotenv";
 const App = () => {
-  // console.log(firebaseConfig);
   const firebaseConfig = {
     apiKey: "AIzaSyDDxikbs-SQpqrh3dAvGAm4IpB_SLixRvo",
     authDomain: "employee-management-syst-cbab4.firebaseapp.com",
@@ -19,9 +16,15 @@ const App = () => {
     messagingSenderId: "1021847694141",
     appId: "1:1021847694141:web:3ff6971f94838f12797354",
   };
+  let app, db;
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  if (!firebase.apps.length) {
+   app = firebase.initializeApp(firebaseConfig);
+   db = firebase.firestore(app)
+  }else {
+    app = firebase.app();
+    db = firebase.firestore(app)
+  }
 
   return (
     <FirebaseContext.Provider value={{ app, db }}>
