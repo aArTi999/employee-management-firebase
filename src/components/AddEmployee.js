@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FirebaseContext } from "../context/firebaseContext";
-import 'firebase/firestore';
+import "firebase/firestore";
 
 const AddEmployee = () => {
   const [employeeDetails, setEmployeeDetails] = useState({
@@ -9,9 +9,8 @@ const AddEmployee = () => {
     salary: "",
   });
   const { db } = useContext(FirebaseContext);
-  
-  
-  console.log(db);
+
+  // console.log(db);
   const onSubmit = (e) => {
     e.preventDefault();
     db.collection("employees").doc().set(employeeDetails);
