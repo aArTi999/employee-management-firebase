@@ -3,38 +3,34 @@ import { FirebaseContext } from "../context/firebaseContext";
 import "firebase/firestore";
 const Employees = () => {
   const { db } = useContext(FirebaseContext);
-  console.log(db);
   const [employees, setEmployees] = useState([]);
-  const fetchedEmployees = () => {
-    const arr = [];
-    db.collection("employees")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          // console.log(doc);
-          arr.push({ ...doc.data(), id: doc.id });
-        });
-        return arr;
-      });
-  };
-  useEffect(() => {
-    (async () => {
-      const allEmployees = await fetchedEmployees();
-      console.log(allEmployees);
-      setEmployees(allEmployees);
+
+  const fetchEmployees=async()=>{
+    const response= db.collection('employees');
+    const data= await response.get();
+   const allData = data?.docs?.map((item, i)=>{
+      if(item){
+        // setEmployees([...employees, item.data()])
+        return item.data();
+      }}
+     )
+     return allData;
+  }
+
+
+  useEffect(() => {  
+    (async()=>{
+      const data = await fetchEmployees();
+      setEmployees(data);
     })();
-  }, [fetchedEmployees]);
+  }, []);
+
   return (
     <div>
       <table>
-        <thead>
-          <th>Name</th>
-          <th>Designation</th>
-          <th>Salary</th>
-        </thead>
         <tbody>
-          {employees.map((emp) => (
-            <tr>
+          {employees && employees.map((emp, i) => (
+            <tr key={i}>
               <td>{emp.name}</td>
               <td>{emp.designation}</td>
               <td>{emp.salary}</td>
