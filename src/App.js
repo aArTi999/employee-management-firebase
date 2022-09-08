@@ -1,12 +1,13 @@
 import React from "react";
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from "firebase/app";
+import "firebase/firestore";
 import { FirebaseContext } from "./context/firebaseContext";
 import Employees from "./components/Employees";
 import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployee from "./components/AddEmployee";
 import Error from "./components/Error";
+import EditEmployee from "./components/EditEmployee";
 const App = () => {
   const firebaseConfig = {
     apiKey: "AIzaSyDDxikbs-SQpqrh3dAvGAm4IpB_SLixRvo",
@@ -19,11 +20,11 @@ const App = () => {
   let app, db;
 
   if (!firebase.apps.length) {
-   app = firebase.initializeApp(firebaseConfig);
-   db = firebase.firestore(app)
-  }else {
+    app = firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore(app);
+  } else {
     app = firebase.app();
-    db = firebase.firestore(app)
+    db = firebase.firestore(app);
   }
 
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/employees" element={<Employees />} />
+          <Route path="/edit-employee/:id" element={<EditEmployee />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

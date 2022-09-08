@@ -1,0 +1,135 @@
+.head-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color:#c1dbfa;
+}
+.head-container h1{
+    width: 100%;
+    height: 5vh;
+    background-color: #17357a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.head-container div{
+    width: 100%;
+    height: 10vh;
+    color: #17357a;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 150px;
+    
+}
+.head-container button{
+   border: none;
+}
+
+
+.button-container{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 100px;
+    
+}
+.button-container button {
+    margin: 0 5px;
+}
+
+.form-input-containers{
+    width: 100%;
+    height: 100vh;
+    /* border: 3px solid crimson; */
+    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: center;
+    /* background-color:#d4e6fc; */
+}
+.form-input-containers button{
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* height: 50px; */
+    font-size: 14px;
+    padding: 6px;
+    background-color: #17357a;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 800;
+}
+.form-input-containers h1{
+    color: white;
+    background-color: #17357a;
+}
+.input-container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    color: #17357a;
+    font-size: 14px;
+    font-weight: 700;
+    
+
+}
+
+input{
+    width: 200px;
+    margin-left: 50px;
+    height: 20px;
+}
+.personal-detail-container{
+    /* border: 2px dashed #17357a; */
+    width: 50%;
+    margin: auto;
+    background-color:#a0c8fa;
+    border-radius: 5px;
+}
+.personal-detail-container h4{
+    color: #17357a;
+    
+}
+.official-detail-container{
+    /* border: 2px dashed #17357a; */
+    width: 50%;
+    margin: auto;
+    background-color: #a0c8fa;
+}
+.official-detail-container h4{
+    color: #17357a;
+}
+.view-container{
+    width: 100%;
+    height: 100vh;
+    /* border: 3px solid crimson; */
+    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: center;
+    
+}
+.view-container h1{
+    color: white;
+    background-color: #17357a;
+}
+.educational-detail-container{
+    width: 50%;
+    margin: auto;
+    background-color: #a0c8fa;
+}
+.educational-detail-container h4{
+    color: #17357a;
+}
