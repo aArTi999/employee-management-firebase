@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { FirebaseContext } from "../context/firebaseContext";
 import "firebase/firestore";
 import "../App.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Employees = () => {
+  // const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
   const { db } = useContext(FirebaseContext);
@@ -47,15 +48,63 @@ const Employees = () => {
           {employees &&
             employees.map((emp, i) => (
               <tr key={emp.id}>
-                <td>Employee Id :{emp.id}</td>
-                <td>Employee Name: {emp.name}</td>
+                <td style={{ color: "#17357a", fontWeight: "bold" }}>
+                  Employee Id :{emp.id}
+                </td>
+
+                <td style={{ color: "#17357a", fontWeight: "bold" }}>
+                  Employee Name: {emp.name}
+                </td>
 
                 <td>
-                  <button onClick={() => deleteEmployee(emp.id)}>Delete</button>
+                  <button
+                    style={{
+                      width: "120px",
+                      padding: "8px",
+                      backgroundColor: "#961311",
+                      borderRadius: "5px",
+                      marginRight: "10px",
+                      color: "white",
+                      fontWeight: "bold",
+                      marginTop: "10px",
+                      border: "none",
+                    }}
+                    onClick={() => deleteEmployee(emp.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
                 <td>
-                  <button onClick={() => navigate(`/edit-employee/${emp.id}`)}>
-                    Edit
+                  <button
+                    style={{
+                      width: "120px",
+                      padding: "8px",
+                      backgroundColor: "#086137",
+                      borderRadius: "5px",
+                      marginRight: "10px",
+                      color: "white",
+                      fontWeight: "bold",
+                      marginTop: "10px",
+                      border: "none",
+                    }}
+                    onClick={() => navigate(`/edit-employee/${emp.id}`)}
+                  >
+                    View And Update
+                  </button>
+                  <button
+                    style={{
+                      width: "120px",
+                      backgroundColor: "#17357a",
+                      borderRadius: "5px",
+                      marginLeft: "10px",
+                      border: "none",
+                      color: "white",
+                      padding: "10px",
+                      fontWeight: "bold",
+                    }}
+                    onClick={() => navigate(`/view-details/${emp.id}`)}
+                  >
+                    view more
                   </button>
                 </td>
               </tr>

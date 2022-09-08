@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddEmployee from "./components/AddEmployee";
 import Error from "./components/Error";
 import EditEmployee from "./components/EditEmployee";
+import ViewAllDetails from "./components/ViewAllDetails";
 const App = () => {
   const firebaseConfig = {
     apiKey: "AIzaSyDDxikbs-SQpqrh3dAvGAm4IpB_SLixRvo",
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/edit-employee/:id" element={<EditEmployee />} />
+          <Route path="/view-details/:id" element={<ViewAllDetails />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>

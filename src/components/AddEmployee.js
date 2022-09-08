@@ -6,8 +6,19 @@ import "../App.css";
 const AddEmployee = () => {
   const [employeeDetails, setEmployeeDetails] = useState({
     name: "",
+    phone: "",
+    father: "",
+    age: "",
+    empid: "",
     designation: "",
     salary: "",
+    workexp: "",
+    location: "",
+    qualification: "",
+    inst_name: "",
+    stream: "",
+    course_dur: "",
+    result: "",
   });
   const { db } = useContext(FirebaseContext);
 
@@ -26,6 +37,11 @@ const AddEmployee = () => {
       salary: "",
       workexp: "",
       location: "",
+      qualification: "",
+      inst_name: "",
+      stream: "",
+      course_dur: "",
+      result: "",
     });
   };
   return (
@@ -191,7 +207,7 @@ const AddEmployee = () => {
                 onChange={(e) =>
                   setEmployeeDetails({
                     ...employeeDetails,
-                    empid: e.target.value,
+                    qualification: e.target.value,
                   })
                 }
               >
@@ -211,7 +227,7 @@ const AddEmployee = () => {
                 onChange={(e) =>
                   setEmployeeDetails({
                     ...employeeDetails,
-                    empid: e.target.value,
+                    inst_name: e.target.value,
                   })
                 }
               >
@@ -231,7 +247,7 @@ const AddEmployee = () => {
                 onChange={(e) =>
                   setEmployeeDetails({
                     ...employeeDetails,
-                    empid: e.target.value,
+                    stream: e.target.value,
                   })
                 }
               >
@@ -253,7 +269,7 @@ const AddEmployee = () => {
                 onChange={(e) =>
                   setEmployeeDetails({
                     ...employeeDetails,
-                    workexp: e.target.value,
+                    course_dur: e.target.value,
                   })
                 }
               />
@@ -268,7 +284,7 @@ const AddEmployee = () => {
                 onChange={(e) =>
                   setEmployeeDetails({
                     ...employeeDetails,
-                    location: e.target.value,
+                    result: e.target.value,
                   })
                 }
               />
