@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FirebaseContext } from "../context/firebaseContext";
 import "firebase/firestore";
 import "../App.css";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 const Employees = () => {
   // const [count, setCount] = useState(0);
   const navigate = useNavigate();
@@ -33,11 +33,13 @@ const Employees = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      const data = await fetchEmployees();
-      console.log(data);
-      setEmployees(data);
-    })();
+    if(!employees.length){
+      (async () => {
+        const data = await fetchEmployees();
+        console.log(data);
+        setEmployees(data);
+      })();
+    }
   }, [deleteEmployee]);
 
   return (
@@ -75,7 +77,7 @@ const Employees = () => {
                   </button>
                 </td>
                 <td>
-                  <button
+                  {/* <button
                     style={{
                       width: "120px",
                       padding: "8px",
@@ -90,7 +92,7 @@ const Employees = () => {
                     onClick={() => navigate(`/edit-employee/${emp.id}`)}
                   >
                     View And Update
-                  </button>
+                  </button> */}
                   <button
                     style={{
                       width: "120px",

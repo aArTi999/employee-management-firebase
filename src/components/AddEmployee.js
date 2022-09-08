@@ -49,7 +49,7 @@ const AddEmployee = () => {
       <form onSubmit={onSubmit}>
         <div className="form-input-containers">
           <h1>Add New Employee</h1>
-          <div className="personal-detail-container">
+          <div className="details-container personal-detail-container">
             <h4>Personal Details</h4>
             <div className="input-container">
               <label htmlFor="name">Employee Name:</label>
@@ -114,7 +114,7 @@ const AddEmployee = () => {
             </div>
           </div>
           <hr />
-          <div className="official-detail-container">
+          <div className="details-container official-detail-container">
             <h4>Official Details</h4>
             <div className="input-container">
               <label htmlFor="empid">Employee Id</label>
@@ -195,7 +195,7 @@ const AddEmployee = () => {
             </div>
           </div>
           <hr />
-          <div className="educational-detail-container">
+          <div className="details-container educational-detail-container">
             <h4>Educational Details</h4>
             <div className="input-container">
               <label htmlFor="qualification">Qualification:</label>
